@@ -12,5 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//= require modernizr
+//= require gumby
+//= require holder
 //= require_tree .

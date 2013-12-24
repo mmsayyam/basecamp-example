@@ -5,15 +5,26 @@ gem 'rails', '4.0.0'
 
 group :development do
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# gem 'sqlite3'
 end
 
 group :production do
-	gem "pg", "~> 0.17.1"
+	# gem "pg", "~> 0.17.1"
 end
+
+gem 'mongoid', github: 'mongoid/mongoid'
+gem 'bson_ext'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
+
+
+# remove when done
+gem 'holder_rails'
+
+gem "modernizr-rails"
+
+gem 'gumby-framework'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -28,7 +39,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
+# gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
@@ -39,7 +50,7 @@ group :doc do
 end
 
 # Use ActiveModel has_secure_password
-gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'bcrypt-ruby'
 
 # Use unicorn as the app server
 # gem 'unicorn'
