@@ -1,22 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>My Basecamp Example</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
+	<title>My Basecamp Example</title>
+	<%= javascript_include_tag :modernizr %>
+	<%= stylesheet_link_tag    "application", media: "all" %>
+	<%= javascript_include_tag "application" %>
+	<%= csrf_meta_tags %>
 </head>
 <body>
-	<div id="container">
-		<div id="user_header">
-			<%= link_to "Sign Up", new_user_path %> or
-			<%= link_to "Sign In", new_session_path %>
+	<nav class="navbar" id="navbar-main-nav">
+		<div class="row">
+			<a href="#" gumby-trigger="#navbar-main-nav #main-nav" class="toggle"><i class="icon-menu"></i></a>
+			<nav class="ten columns pull_right">
+				<ul id="main-nav">
+					<li>
+						<p class="medium metro default btn icon-user icon-left">
+							<%= link_to "Sign Up", new_user_path %>
+						</p>
+					</li>
+					<li>
+						<p class="medium metro secondary btn icon-user icon-left">
+							<%= link_to "Sign In", new_session_path %>
+						</p>
+					</li>
+				</ul>
+			</nav>
 		</div>
+	</nav>
+	<div class="row">
 		<% flash.each do |name, msg| %>
 		<%= content_tag :div, msg, id: "flash_#{name}" %>
 		<% end %>
-
-<%= yield %>
+	</div>
+	<div class="row">
+		<%= yield %>
+	</div>
 </div>
 </body>
 </html>
