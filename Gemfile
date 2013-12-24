@@ -5,12 +5,15 @@ gem 'rails', '4.0.0'
 
 group :development do
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# gem 'sqlite3'
 end
 
 group :production do
-	gem "pg", "~> 0.17.1"
+	# gem "pg", "~> 0.17.1"
 end
+
+gem 'mongoid', github: 'mongoid/mongoid'
+gem 'bson_ext'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -47,7 +50,7 @@ group :doc do
 end
 
 # Use ActiveModel has_secure_password
-gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'bcrypt-ruby'
 
 # Use unicorn as the app server
 # gem 'unicorn'
