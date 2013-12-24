@@ -1,6 +1,16 @@
-class User < ActiveRecord::Base
-	has_secure_password
+class User
+	include Mongoid::Document
+	include ActiveModel::SecurePassword
 
-	attr_accessible :email, :password, :password_confirmation
+	field :email, :type => String
+	field :password_digest, :type => String
+
+	has_secure_password 
+	# attr_accessor :email, :password, :password_confirmation
 	validates :email, uniqueness: true
+
+
+	def self.find_by_email(email)
+		where(:email => email).first
+	end
 end
