@@ -8,8 +8,7 @@ class User
 	has_secure_password 
 	# attr_accessor :email, :password, :password_confirmation
 	validates :email, uniqueness: true
-
-
+	
 	def self.find_by_email(email)
 		where(:email => email).first
 	end
