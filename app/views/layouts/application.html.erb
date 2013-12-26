@@ -8,46 +8,47 @@
 	<%= csrf_meta_tags %>
 </head>
 <body>
-
-	<div id="container">
-		<div id="user_header">
-			<% if current_user %>
-			Logged in as <%= current_user.email %>.
-			<%= link_to "Log Out", logout_path %>
-			<% else %>
-			<%= link_to "Sign Up", signup_path %> or
-			<%= link_to "Log In", login_path %>
-			<% end %>
-
 	<nav class="navbar" id="navbar-main-nav">
 		<div class="row">
 			<a href="#" gumby-trigger="#navbar-main-nav #main-nav" class="toggle"><i class="icon-menu"></i></a>
 			<nav class="ten columns pull_right">
 				<ul id="main-nav">
-
+					<% if current_user %>
+						<li>Logged in as <%= current_user.email %>.</li>
+						<li><%= link_to "Log Out", logout_path %></li>
+					<% else %>
 					<li>
 						<p class="medium metro default btn icon-user icon-left">
-							<%= link_to "Sign Up", signup_path %>
+							<%= link_to "Sign Up", signup_path %></li>
 						</p>
-					</li>
-					<li>						
-						<p class="medium metro secondary btn icon-user icon-left">
-							<%= link_to "Sign In", login_path %>
-						</p>
-					</li>
-					
-				</ul>
+						<li>
+							<p class="medium metro secondary btn icon-user icon-left">
+								<%= link_to "Log In", login_path %></li>
+							</p>
+						</li>
+					<% end %>
+<!-- 							<li>
+								<p class="medium metro default btn icon-user icon-left">
+									<%#= link_to "Sign Up", signup_path %>
+								</p>
+							</li>
+							<li>						
+								<p class="medium metro secondary btn icon-user icon-left">
+									<%#= link_to "Sign In", login_path %>
+								</p>
+							</li> -->
+						</ul>
+					</nav>
+				</div>
 			</nav>
+			<div class="row">
+				<% flash.each do |name, msg| %>
+				<%= content_tag :div, msg, id: "flash_#{name}" %>
+				<% end %>
+			</div>
+			<div class="row">
+				<%= yield %>
+			</div>
 		</div>
-	</nav>
-	<div class="row">
-		<% flash.each do |name, msg| %>
-		<%= content_tag :div, msg, id: "flash_#{name}" %>
-		<% end %>
-	</div>
-	<div class="row">
-		<%= yield %>
-	</div>
-</div>
-</body>
-</html>
+	</body>
+	</html>
