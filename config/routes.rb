@@ -1,13 +1,13 @@
 BasecampExample::Application.routes.draw do
-<<<<<<< HEAD
+
   get "home/index"
   get "home/about"
   get "home/contact"
-=======
+
   get 'signup', to: 'users#new', as: 'signup'
   get 'signin', to: 'sessions#new', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'
->>>>>>> logout
+
   resources :users
   resources :sessions
 
